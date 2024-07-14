@@ -11,10 +11,17 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ChallengeService {
     private final ChallengeRepository challengeRepository;
+
+    @Transactional
+    public List<ChallengeFindResponse> findAll(){
+        return challengeRepository.findAllChallenges();
+    }
 
     @Transactional
     public Long save(ChallengeCreateRequest challengeCreateRequest){

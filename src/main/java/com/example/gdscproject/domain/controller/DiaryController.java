@@ -7,14 +7,22 @@ import com.example.gdscproject.domain.service.DiaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/diaries")
+@CrossOrigin(origins = "http://localhost:3000")
 public class DiaryController {
     private final DiaryService diaryService;
 
     @Autowired
     public DiaryController(DiaryService diaryService) {
         this.diaryService = diaryService;
+    }
+
+    @GetMapping("")
+    public List<DiaryFindResponse> findAllDiaries(){
+        return diaryService.findAll();
     }
 
     @PostMapping("/")

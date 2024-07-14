@@ -13,10 +13,17 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class DiaryService {
     private final DiaryRepository diaryRepository;
+
+    @Transactional
+    public List<DiaryFindResponse> findAll(){
+        return diaryRepository.findAllDiaries();
+    }
 
     @Transactional
     public Long save(DiaryCreateRequest diaryCreateRequest){
