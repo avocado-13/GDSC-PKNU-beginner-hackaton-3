@@ -1,0 +1,11 @@
+.nav-bar {
+    width: 100%;
+    background-color: peachpuff;
+    padding: 15px 0px;
+    text-align: center;
+}
+.nav-bar-menu {
+    color: black;
+    margin: 15px;
+    text-decoration: none;
+}

@@ -1,0 +1,19 @@
+.challenge-menu {
+    margin: 30px;
+}
+.challenge-menu a {
+    text-align: center;  
+    text-decoration: none; /* 링크의 밑줄 제거 */  
+    color: inherit; /* 링크의 색상 제거 */
+
+    margin: 30px;
+    padding: 30px;
+}
+.challenge {
+    margin: 20px;
+    padding: 40px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    background-color: rgb(168, 221, 252);
+    color: rgb(34, 67, 75);
+}

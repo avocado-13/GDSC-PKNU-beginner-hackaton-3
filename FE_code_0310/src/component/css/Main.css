@@ -1,0 +1,23 @@
+.A {
+    display: inline-block;
+    margin: 50px;
+}
+.B {
+    margin: 50px;
+    display: inline-block;
+}
+.current-challenge {
+    width: 200px;
+    height: 100px;
+
+    background-color: gray;
+
+}
+.current-challenge-name {
+    text-align: center;
+    padding: 30px;
+}
+.progress-percentage {
+    width: 200px;
+    margin-top:0px;
+}
