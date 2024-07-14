@@ -8,13 +8,19 @@ import com.example.gdscproject.model.repository.ChallengeRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class ChallengeService {
     private final ChallengeRepository challengeRepository;
     private final ModelMapper modelMapper;
+
+    @Autowired
+    public ChallengeService(ChallengeRepository challengeRepository, ModelMapper modelMapper) {
+        this.challengeRepository = challengeRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Transactional
     public Long save(ChallengeCreateRequest challengeCreateRequest){

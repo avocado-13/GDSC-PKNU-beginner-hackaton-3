@@ -1,6 +1,5 @@
 package com.example.gdscproject.domain.dto.request;
 
-import com.example.gdscproject.common.JobEnum;
 import com.example.gdscproject.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -4,6 +4,7 @@ import com.example.gdscproject.domain.dto.request.DiaryCreateRequest;
 import com.example.gdscproject.domain.dto.request.DiaryUpdateRequest;
 import com.example.gdscproject.domain.dto.response.DiaryFindResponse;
 import com.example.gdscproject.domain.service.DiaryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class DiaryController {
     private final DiaryService diaryService;
 
+    @Autowired
     public DiaryController(DiaryService diaryService) {
         this.diaryService = diaryService;
     }

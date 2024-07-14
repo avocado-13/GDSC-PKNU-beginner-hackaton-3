@@ -6,15 +6,23 @@ import com.example.gdscproject.domain.dto.response.DiaryFindResponse;
 import com.example.gdscproject.model.entity.Diary;
 import com.example.gdscproject.model.repository.DiaryRepository;
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class DiaryService {
     private final DiaryRepository diaryRepository;
     private final ModelMapper modelMapper;
+
+    @Autowired
+    public DiaryService(DiaryRepository diaryRepository, ModelMapper modelMapper) {
+        this.diaryRepository = diaryRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Transactional
     public Long save(DiaryCreateRequest diaryCreateRequest){

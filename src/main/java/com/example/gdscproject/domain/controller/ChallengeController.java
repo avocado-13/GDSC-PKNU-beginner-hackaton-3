@@ -4,6 +4,7 @@ import com.example.gdscproject.domain.dto.request.ChallengeCreateRequest;
 import com.example.gdscproject.domain.dto.request.ChallengeUpdateRequest;
 import com.example.gdscproject.domain.dto.response.ChallengeFindResponse;
 import com.example.gdscproject.domain.service.ChallengeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class ChallengeController {
     private final ChallengeService challengeService;
 
+    @Autowired
     public ChallengeController(ChallengeService challengeService) {
         this.challengeService = challengeService;
     }

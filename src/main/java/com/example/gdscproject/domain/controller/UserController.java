@@ -4,6 +4,7 @@ import com.example.gdscproject.domain.service.UserService;
 import com.example.gdscproject.domain.dto.request.UserCreateRequest;
 import com.example.gdscproject.domain.dto.request.UserUpdateRequest;
 import com.example.gdscproject.domain.dto.response.UserFindResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -34,8 +36,5 @@ public class UserController {
     public void delete(@PathVariable Long id){
         userService.deleteById(id);
     }
-
-
-
 
 }
