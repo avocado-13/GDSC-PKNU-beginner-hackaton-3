@@ -11,16 +11,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@RequiredArgsConstructor
 @Service
 public class UserService {
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
 
-    @Autowired
-    public UserService(UserRepository userRepository, ModelMapper modelMapper) {
-        this.userRepository = userRepository;
-        this.modelMapper = modelMapper;
-    }
 
     @Transactional
     public Long save(UserCreateRequest userCreateRequest){
@@ -29,7 +25,7 @@ public class UserService {
 
     @Transactional
     public UserFindResponse findById(Long id){
-        return modelMapper.map(userRepository.findById(id), UserFindResponse.class);
+        return UserFindResponse.of(userRepository.findById(id).get());
     }
 
     @Transactional

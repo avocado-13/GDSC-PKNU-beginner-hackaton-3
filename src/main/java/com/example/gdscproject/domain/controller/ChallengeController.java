@@ -7,14 +7,22 @@ import com.example.gdscproject.domain.service.ChallengeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/challenges")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ChallengeController {
     private final ChallengeService challengeService;
 
     @Autowired
     public ChallengeController(ChallengeService challengeService) {
         this.challengeService = challengeService;
+    }
+
+    @GetMapping("")
+    public List<ChallengeFindResponse> findAllChallenges(){
+        return challengeService.findAll();
     }
 
     @PostMapping("/")
