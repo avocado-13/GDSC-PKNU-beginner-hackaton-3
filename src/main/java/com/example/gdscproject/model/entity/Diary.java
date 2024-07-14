@@ -1,6 +1,7 @@
-package com.example.gdscproject.domain.user.model.entity;
+package com.example.gdscproject.model.entity;
 
 import com.example.gdscproject.common.EmotionEnum;
+import com.example.gdscproject.common.RatingEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,6 +17,7 @@ import java.util.Date;
 @Entity
 public class Diary {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "diary_id")
     private Long id;
 
     @Column(name = "diary_name")
@@ -25,9 +27,18 @@ public class Diary {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
 
-    @Enumerated(EnumType.ORDINAL)
-    private Enum<EmotionEnum> emotion;
-
+    private String emotion;
+    private Integer rating;
     private String content;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public void update(String name, String emotion, Integer rating, String content){
+        this.name = name;
+        this.emotion = emotion;
+        this.rating = rating;
+        this.content = content;
+    }
 }
